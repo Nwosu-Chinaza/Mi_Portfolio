@@ -1,0 +1,342 @@
+/* Landing Container */
+.landing-container {
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-end; */
+  gap: 5rem;
+  height: 100vh;
+  perspective: 2000px; /* Increased perspective for better 3D effect */
+  /* background: radial-gradient(circle at center, #0a0a0f 0%, #05050a 100%); */
+  /* padding-bottom: 5rem; */
+}
+
+/* Base Card */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 380px;
+  background: rgba(15, 15, 20, 0.75);
+  border: 2px solid #00ffff;
+  border-radius: 20px;
+  text-align: center;
+  color: #e0e0e0;
+  padding: 1.5rem;
+  text-decoration: none;
+
+  transform-style: preserve-3d;
+  transform: perspective(1200px);
+  transition: box-shadow 0.4s ease;
+
+  /* Add a subtle glow by default */
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Card Text */
+.card h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 10px #00ffff80;
+  transform: translateZ(30px); /* Increased Z depth */
+}
+
+.card p {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  transform: translateZ(25px); /* Increased Z depth */
+}
+
+.btn {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  background: linear-gradient(90deg, #00ffff, #3bf6f6);
+  border-radius: 10px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  transform: translateZ(35px); /* Button pops out more */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Complex 3D tilt and bend animations */
+@keyframes tilt-bend-left {
+  0% {
+    transform: perspective(1200px) rotateX(2deg) rotateY(-8deg) rotateZ(-4deg)
+      translateY(20px) translateZ(0);
+  }
+  20% {
+    transform: perspective(1200px) rotateX(5deg) rotateY(-12deg) rotateZ(-6deg)
+      translateY(15px) translateZ(10px);
+  }
+  40% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(-4deg) rotateZ(-2deg)
+      translateY(25px) translateZ(-5px);
+  }
+  60% {
+    transform: perspective(1200px) rotateX(-3deg) rotateY(-8deg) rotateZ(0deg)
+      translateY(20px) translateZ(10px);
+  }
+  80% {
+    transform: perspective(1200px) rotateX(4deg) rotateY(-15deg) rotateZ(-8deg)
+      translateY(10px) translateZ(-10px);
+  }
+  100% {
+    transform: perspective(1200px) rotateX(2deg) rotateY(-8deg) rotateZ(-4deg)
+      translateY(20px) translateZ(0);
+  }
+}
+
+@keyframes tilt-bend-right {
+  0% {
+    transform: perspective(1200px) rotateX(-2deg) rotateY(8deg) rotateZ(4deg)
+      translateY(20px) translateZ(0);
+  }
+  20% {
+    transform: perspective(1200px) rotateX(-5deg) rotateY(12deg) rotateZ(6deg)
+      translateY(25px) translateZ(-10px);
+  }
+  40% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(4deg) rotateZ(2deg)
+      translateY(15px) translateZ(10px);
+  }
+  60% {
+    transform: perspective(1200px) rotateX(3deg) rotateY(8deg) rotateZ(0deg)
+      translateY(20px) translateZ(-5px);
+  }
+  80% {
+    transform: perspective(1200px) rotateX(-4deg) rotateY(15deg) rotateZ(8deg)
+      translateY(30px) translateZ(10px);
+  }
+  100% {
+    transform: perspective(1200px) rotateX(-2deg) rotateY(8deg) rotateZ(4deg)
+      translateY(20px) translateZ(0);
+  }
+}
+
+/* Alternative: More fluid wave-like animation */
+@keyframes wave-bend-left {
+  0%,
+  100% {
+    transform: perspective(1200px) rotateX(3deg) rotateY(-10deg) rotateZ(-5deg)
+      translateY(20px);
+  }
+  25% {
+    transform: perspective(1200px) rotateX(-2deg) rotateY(-15deg) rotateZ(-8deg)
+      translateY(10px) translateZ(15px);
+  }
+  50% {
+    transform: perspective(1200px) rotateX(5deg) rotateY(-5deg) rotateZ(-2deg)
+      translateY(25px) translateZ(-10px);
+  }
+  75% {
+    transform: perspective(1200px) rotateX(-4deg) rotateY(-12deg) rotateZ(-6deg)
+      translateY(15px) translateZ(15px);
+  }
+}
+
+@keyframes wave-bend-right {
+  0%,
+  100% {
+    transform: perspective(1200px) rotateX(-3deg) rotateY(10deg) rotateZ(5deg)
+      translateY(20px);
+  }
+  25% {
+    transform: perspective(1200px) rotateX(2deg) rotateY(15deg) rotateZ(8deg)
+      translateY(30px) translateZ(-15px);
+  }
+  50% {
+    transform: perspective(1200px) rotateX(-5deg) rotateY(5deg) rotateZ(2deg)
+      translateY(15px) translateZ(10px);
+  }
+  75% {
+    transform: perspective(1200px) rotateX(4deg) rotateY(12deg) rotateZ(6deg)
+      translateY(25px) translateZ(-15px);
+  }
+}
+
+/* Extreme 3D motion */
+@keyframes extreme-bend-left {
+  0% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(-8deg) rotateZ(-4deg)
+      translateY(20px);
+  }
+  33% {
+    transform: perspective(1200px) rotateX(8deg) rotateY(-15deg) rotateZ(-10deg)
+      translateY(10px) translateZ(20px);
+  }
+  66% {
+    transform: perspective(1200px) rotateX(-8deg) rotateY(-5deg) rotateZ(2deg)
+      translateY(30px) translateZ(-20px);
+  }
+  100% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(-8deg) rotateZ(-4deg)
+      translateY(20px);
+  }
+}
+
+@keyframes extreme-bend-right {
+  0% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(8deg) rotateZ(4deg)
+      translateY(20px);
+  }
+  33% {
+    transform: perspective(1200px) rotateX(-8deg) rotateY(15deg) rotateZ(10deg)
+      translateY(30px) translateZ(-20px);
+  }
+  66% {
+    transform: perspective(1200px) rotateX(8deg) rotateY(5deg) rotateZ(-2deg)
+      translateY(10px) translateZ(20px);
+  }
+  100% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(8deg) rotateZ(4deg)
+      translateY(20px);
+  }
+}
+
+/* Apply the animations - Choose one pair */
+.about-card {
+  animation: tilt-bend-left 10s ease-in-out infinite;
+}
+
+.projects-card {
+  animation: tilt-bend-right 10s ease-in-out infinite;
+}
+
+/* For wave effect (more gentle) */
+/*
+.about-card {
+  animation: wave-bend-left 12s ease-in-out infinite;
+}
+
+.projects-card {
+  animation: wave-bend-right 12s ease-in-out infinite;
+}
+*/
+
+/* For extreme effect (more dramatic) */
+/*
+.about-card {
+  animation: extreme-bend-left 8s ease-in-out infinite;
+}
+
+.projects-card {
+  animation: extreme-bend-right 8s ease-in-out infinite;
+}
+*/
+
+/* Hover Effects - Now even more dynamic */
+.card:hover {
+  animation-play-state: paused;
+  transform: perspective(1200px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+    translateY(-30px) scale(1.08);
+  box-shadow:
+    0 0 30px #00ffff,
+    0 0 60px #00ffff80,
+    0 0 100px #00ffff40;
+  border-color: #fff;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover h2 {
+  transform: translateZ(40px);
+  text-shadow: 0 0 20px #00ffff;
+}
+
+.card:hover p {
+  transform: translateZ(35px);
+}
+
+.card:hover .btn {
+  transform: translateZ(50px) translateY(-5px) scale(1.1);
+  box-shadow: 0 0 25px #00ffff;
+}
+
+/* Add a subtle gradient overlay for depth */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), transparent);
+  pointer-events: none;
+  transform: translateZ(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .landing-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .about-card,
+  .projects-card {
+    transform: rotate(0deg) translateY(0);
+    animation: none;
+  }
+
+  .card {
+    transform: none !important;
+  }
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #1f2833;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dotted #00fff7;
+  box-shadow: 0 0 10px rgba(0, 255, 247, 0.4);
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.social-icon img {
+  width: 18px;
+  height: 18px;
+  filter: invert(1);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 0 20px #00fff7;
+}
+
+.copyRight {
+  text-align: center;
+}
+.name {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 5rem;
+  color: #fff;
+  text-shadow: 2px 4px 10px #00ffff80;
+}
+
+/* #name {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 01rem;
+  color: #00ffff;
+  text-shadow: 2px 4px 10px #00ffff80;
+} */
