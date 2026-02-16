@@ -1,20 +1,17 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
 body {
   font-family: "Inter", sans-serif;
-  background-color: #050518; /* deep space navy */
+  background-color: #050518; 
   color: #e0e0e0;
   overflow-x: hidden;
   height: 100vh;
 }
 
-/* Landing Container with 3D perspective */
 .landing-container {
   display: flex;
   justify-content: center;

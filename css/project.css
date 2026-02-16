@@ -595,7 +595,7 @@ body::after {
   }
 }
 
-/* ===== CUSTOM SCROLLBAR ===== */
+/* CUSTOM SCROLLBAR */
 ::-webkit-scrollbar {
   width: 10px;
 }
